@@ -14,7 +14,6 @@ int GetCountNumbers(int[] num)
     return count;
 }
 
-
 void PrintArray(int[] arr)
 {
     string str = " ";
@@ -26,7 +25,6 @@ void PrintArray(int[] arr)
     str += " ";
     Console.Write($"{str}");
 }
-
 
 void ExceptionHandling(string[] numbers)
 {
