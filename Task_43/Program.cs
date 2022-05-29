@@ -1,7 +1,7 @@
 ﻿// double k1 = 5;
-// double k 2 = 9;
-// double b 1 = 2;
-// double b 2 = 4;
+// double k2 = 9;
+// double b1 = 2;
+// double b2 = 4;
 
 Console.Write("Введите число для k1: ");
 string k1 = Console.ReadLine();
