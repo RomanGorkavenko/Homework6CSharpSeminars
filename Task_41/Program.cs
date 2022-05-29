@@ -14,7 +14,7 @@ int GetCountNumbers(int[] num)
     return count;
 }
 
-void PrintArray(int[] arr)
+void PrintInputUser(int[] arr)
 {
     string str = " ";
     foreach (int i in arr)
@@ -50,7 +50,7 @@ void ExceptionHandling(string[] numbers)
 ExceptionHandling(arrayM);
 int countM = GetCountNumbers(resultM);
 string str = "числа";
-if (countM > 4) str = "чисел";
+if (countM > 4 || countM == 0) str = "чисел";
 else if (countM == 1) str = "число";
-PrintArray(resultM);
+PrintInputUser(resultM);
 Console.Write($"-> {countM} {str} больше нуля");
