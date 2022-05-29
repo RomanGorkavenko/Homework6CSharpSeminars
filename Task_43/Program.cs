@@ -1,8 +1,10 @@
-﻿// double k1 = 5;
+﻿// Раскоментируйте ниже для проверки условия
+// double k1 = 5;
 // double k2 = 9;
 // double b1 = 2;
 // double b2 = 4;
 
+// Закоментируйте ниже для проверки условия
 Console.Write("Введите число для k1: ");
 string k1 = Console.ReadLine();
 Console.Write("Введите число для k2: ");
@@ -38,13 +40,6 @@ void ExceptionHandling(string a1, string a2, string c1, string c2)
 }
 
 ExceptionHandling(k1, k2, b1, b2);
-
-// y = d1 * x + F1;
-// y = d2 * x + f2;
-// double x = (f2 - F1) / (d1 - d2);
-// double y = ((f2 * d1) - (F1 * d2)) / (d1 - d2);
-// Console.WriteLine($"x = {x:F1}; y = {y:F1}");
-// Console.ReadKey();
 
 // Раскоментируйте ниже для проверки
 // double b3 = y - d1 * x;
