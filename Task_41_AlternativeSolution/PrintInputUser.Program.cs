@@ -1,14 +1,16 @@
 partial class Program
 {
-    static void PrintInputUser(int[] array)
+    static void PrintInputUser(int[] arrayString)
     {
-        string print = " ";
-        foreach (int i in array)
+        string stringArray = " ";
+
+        for (int i = 0; i < arrayString.Length; i++)
         {
-            print += $", {i}";
+            stringArray += $"{arrayString[i]}, ";
         }
-        print = print.Remove(1, 2);
-        print += ".";
-        Console.Write($"{print}");
+        int n = stringArray.Length;
+        stringArray = stringArray.Remove(n - 2, 2);
+        stringArray += " ";
+        Console.Write($"{stringArray}");
     }
 }

@@ -3,6 +3,14 @@ string[] arrayM = Console.ReadLine().Split().ToArray();
 
 int[] resultM = new int[arrayM.Length];
 
+ExceptionHandling(arrayM);
+int countM = GetCountNumbers(resultM);
+string str = "числа";
+if (countM > 4 || countM == 0) str = "чисел";
+else if (countM == 1) str = "число";
+PrintInputUser(resultM);
+Console.Write($"-> {countM} {str} больше нуля");
+
 int GetCountNumbers(int[] num)
 {
     int length = num.Length;
@@ -14,16 +22,18 @@ int GetCountNumbers(int[] num)
     return count;
 }
 
-void PrintInputUser(int[] arr)
+void PrintInputUser(int[] arrayString)
 {
-    string str = " ";
-    foreach (int i in arr)
+    string stringArray = " ";
+
+    for (int i = 0; i < arrayString.Length; i++)
     {
-        str += $", {i}";
+        stringArray += $"{arrayString[i]}, ";
     }
-    str = str.Remove(1, 2);
-    str += " ";
-    Console.Write($"{str}");
+    int n = stringArray.Length;
+    stringArray = stringArray.Remove(n - 2, 2);
+    stringArray += " ";
+    Console.Write($"{stringArray}");
 }
 
 void ExceptionHandling(string[] numbers)
@@ -40,17 +50,9 @@ void ExceptionHandling(string[] numbers)
         else
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.Write("{0}", numbers[i]);
+            Console.Write("<{0}>", numbers[i]);
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine(" -> Некорректный ввод!");
         }
     }
 }
-
-ExceptionHandling(arrayM);
-int countM = GetCountNumbers(resultM);
-string str = "числа";
-if (countM > 4 || countM == 0) str = "чисел";
-else if (countM == 1) str = "число";
-PrintInputUser(resultM);
-Console.Write($"-> {countM} {str} больше нуля");

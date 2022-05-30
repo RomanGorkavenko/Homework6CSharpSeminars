@@ -14,7 +14,7 @@ partial class Program
             else
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.Write("{0}", numbers[i]);
+                Console.Write("<{0}>", numbers[i]);
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine(" -> Некорректный ввод!");
             }
