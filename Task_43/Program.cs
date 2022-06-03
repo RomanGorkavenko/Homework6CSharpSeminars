@@ -5,65 +5,46 @@
 // double b2 = 4;
 
 // Закоментируйте ниже для проверки условия
+Console.Write("Введите число для k1: ");
+string k1 = Console.ReadLine();
+Console.Write("Введите число для k2: ");
+string k2 = Console.ReadLine();
+Console.Write("Введите число для b1: ");
+string b1 = Console.ReadLine();
+Console.Write("Введите число для b2: ");
+string b2 = Console.ReadLine();
 
-string[] GetFillArray()
+void ExceptionHandling(string a1, string a2, string c1, string c2)
 {
-    string[] array = new string[4];
-    int length = array.Length;
-    string namePoint = "K1";
-    for (int i = 0; i < length; i++)
+    bool yesInt = double.TryParse(a1, out double d1);
+    bool yesInt1 = double.TryParse(a2, out double d2);
+    bool yesInt2 = double.TryParse(c1, out double f1);
+    bool yesInt3 = double.TryParse(c2, out double f2);
+
+    if (yesInt && yesInt1 && yesInt2 && yesInt3)
     {
-        if(i < 2)
-        {
-            namePoint = $"K{i + 1}";
-        }
-        else namePoint = $"B{i - 1}";
-        Console.Write($"Введите число для {namePoint}: ");
-        array[i] = Console.ReadLine().Replace(".", ",");
+        double x = (f2 - f1) / (d1 - d2);
+        double y = ((f2 * d1) - (f1 * d2)) / (d1 - d2);
+        Console.BackgroundColor = ConsoleColor.DarkRed;
+        Console.WriteLine($" x = {x:F1}; y = {y:F1} ");
+        Console.BackgroundColor = ConsoleColor.Black;
+        
     }
-    return array;
-}
-
-(bool ex, double[] arr) ExceptionHandling(string[] array)
-{
-    double[] arrayDouble = new double[array.Length];
-    for (int i = 0; i < array.Length; i++)
+    else
     {
-        bool yesDouble = double.TryParse(array[i], out double d);
-        if (!yesDouble)
-        {
-            return (false, arrayDouble);
-        }
-        else arrayDouble[i] = d;
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.Write($"{a1}, {a2}, {c1}, {c2}");
+        Console.ForegroundColor = ConsoleColor.White;
+        Console.WriteLine(" -> Некорректный ввод!");
     }
-    return (true, arrayDouble);
 }
 
-
-string[] enteredValues = GetFillArray();
-var count = ExceptionHandling(enteredValues);
-if (count.ex)
-{
-    double x = (count.arr[3] - count.arr[2]) / (count.arr[0] - count.arr[1]);
-    double y = ((count.arr[3] * count.arr[0]) - (count.arr[2] * count.arr[1])) / (count.arr[0] - count.arr[1]);
-    Console.BackgroundColor = ConsoleColor.DarkRed;
-    Console.WriteLine($" x = {x:F1}; y = {y:F1} ");
-    Console.BackgroundColor = ConsoleColor.Black;
-
-}
-else
-{
-    // Console.ForegroundColor = ConsoleColor.Red;
-    // Console.Write($"{a1}, {a2}, {c1}, {c2}");
-    Console.ForegroundColor = ConsoleColor.White;
-    Console.WriteLine(" -> Некорректный ввод!");
-}
-
+ExceptionHandling(k1, k2, b1, b2);
 
 // Раскоментируйте ниже для проверки
-// double b3 = y - count.arr[0] * x;
+// double b3 = y - d1 * x;
 // double k3 = (y - F1) / x;
-// double b3 = y - count.arr[1] * x;
-// double k3 = (y - count.arr[3]) / x;
-// Console.WriteLine($"{count.arr[0]} = {k3:F1}; {F1} = {b3:F1}");
-// Console.WriteLine($"{count.arr[0]} = {k3:F1}; {F1} = {b3:F1}");
+// double b3 = y - d2 * x;
+// double k3 = (y - f2) / x;
+// Console.WriteLine($"{d1} = {k3:F1}; {F1} = {b3:F1}");
+// Console.WriteLine($"{d1} = {k3:F1}; {F1} = {b3:F1}");
